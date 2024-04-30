@@ -4,6 +4,14 @@ import Card from "../../components/Card";
 import AgentLayout from "../../layouts/mainlayout/AgentLayout";
 
 const AddProperties = () => {
+
+  // email: "",
+  // mobile: "",
+  // location: "",
+  // user_id: 0,
+  // owner: 0,
+  // active: true,
+  // description: "",
   return (
     <Row>
       <Col sm="12" lg="12">
@@ -25,6 +33,7 @@ const AddProperties = () => {
                   <Form.Control
                     type="text"
                     id="name"
+                    name="name"
                     placeholder="Enter name"
                   />
                 </Form.Group>
@@ -35,6 +44,7 @@ const AddProperties = () => {
                   <Form.Control
                     type="text"
                     id="address"
+                    name="address"
                     placeholder="Enter address"
                   />
                 </Form.Group>
@@ -45,19 +55,36 @@ const AddProperties = () => {
                   <Form.Control
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="Enter email"
                   />
                 </Form.Group>
                 </Col>
                 <Col sm="12" lg="6">
+                  <Row>
+                <Col sm="4" lg="4">
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="mobile">Mobile:</Form.Label>
                   <Form.Control
-                    type="text"
-                    id="mobile"
-                    placeholder="Enter mobile number"
+                    type="number"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter phone number"
                   />
                 </Form.Group>
+                </Col>
+                <Col sm="8" lg="8">
+                <Form.Group className="mb-3">
+                  <Form.Label htmlFor="mobile">Mobile:</Form.Label>
+                  <Form.Control
+                    type="number"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter phone number"
+                  />
+                </Form.Group>
+                </Col>
+                </Row>
                 </Col>
                 <Col sm="12" lg="6">
                 <Form.Group className="mb-3">
@@ -65,71 +92,40 @@ const AddProperties = () => {
                   <Form.Control
                     type="text"
                     id="location"
+                    name="location"
                     placeholder="Enter location"
                   />
                 </Form.Group>
                 </Col>
-                <Col sm="12" lg="6">
-                <Form.Group className="mb-3">
-                  <Form.Label htmlFor="userId">User ID:</Form.Label>
-                  <Form.Control
-                    type="number"
-                    id="userId"
-                    placeholder="Enter user ID"
-                  />
-                </Form.Group>
-                </Col>
-                <Col sm="12" lg="6">
-                <Form.Group className="mb-3">
-                  <Form.Label htmlFor="owner">Owner ID:</Form.Label>
-                  <Form.Control
-                    type="number"
-                    id="owner"
-                    placeholder="Enter owner ID"
-                  />
-                </Form.Group>
-                </Col>
-                <Col sm="12" lg="6">
-                <Form.Group className="mb-3">
-                  <Form.Label htmlFor="active">Active:</Form.Label>
-                  <Form.Check type="checkbox" id="active" label="Active" />
-                </Form.Group>
-                </Col>
+               
                 <Col sm="12" lg="6">
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="description">Description:</Form.Label>
                   <Form.Control
                     as="textarea"
                     id="description"
+                    name="description"
                     rows={3}
                     placeholder="Enter description"
                   />
                 </Form.Group>
               </Col>
-              <Col sm="12" lg="6">
-                <Form.Group className="form-group">
-                  <Form.Label htmlFor="pwd">Password:</Form.Label>
-                  <Form.Control type="password" id="pwd" />
-                </Form.Group>
-              </Col>
-              <div className="checkbox mb-3">
-                <Form.Check className="form-check ">
-                  <Form.Check.Input
-                    type="checkbox"
-                    defaultValue=""
-                    id="flexCheckDefault3"
-                  />
-                  <Form.Check.Label htmlFor="flexCheckDefault3">
-                    Remember me
-                  </Form.Check.Label>
-                </Form.Check>
-              </div>
-              <Button type="button" variant="btn btn-primary">
+
+              <Row>
+                <Col sm="6" lg="6">
+                <Button type="button" variant="btn btn-primary">
                 Submit
-              </Button>{" "}
-              <Button type="button" variant="btn btn-danger">
+              </Button>
+                </Col>
+                <Col sm="6" lg="6">
+                <Button type="button" variant="btn btn-danger">
                 cancel
               </Button>
+                </Col>
+                </Row>
+            
+             {" "}
+              
             </Form>
           </Card.Body>
         </Card>
