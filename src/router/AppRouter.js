@@ -9,6 +9,7 @@ import AgentOwnerDashboard from "../pages/dashboards/AgentOwnerDashboard";
 import OwnerDashboard from "../pages/dashboards/OwnerDashboard";
 import TenantDashboard from "../pages/dashboards/TenantDashboard";
 import AddProperties from "../pages/properties/AddProperties";
+import Addunit from "../pages/units/Addunit";
 
 export const AppRouter = () => {
     return (
@@ -40,6 +41,7 @@ export const AppRouter = () => {
               <Route element={<RequireAuth allowedRoles={['AGENT','AGENTOWNER']} />}>
                 <Route path="/home/agentowner" element={<AgentOwnerDashboard />} />
                 <Route path="/properties" element={<AgentOwnerProperties />} />
+                <Route path="/add/units" element={<Addunit />} />
               </Route>
   
               <Route element={<RequireAuth allowedRoles={['OWNER']} />}>

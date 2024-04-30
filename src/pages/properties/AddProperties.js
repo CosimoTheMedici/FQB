@@ -18,14 +18,14 @@ const AddProperties = () => {
         <Card>
           <Card.Header className="d-flex justify-content-between">
             <div className="header-title">
-              <h4 className="card-title">Basic Form</h4>
+              <h4 className="card-title">Add Properties</h4>
             </div>
           </Card.Header>
           <Card.Body>
-            <p>
+            {/* <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
               vulputate, ex ac venenatis mollis, diam nibh finibus leo
-            </p>
+            </p> */}
             <Form as={Row}>
               <Col sm="12" lg="6">
                 <Form.Group className="mb-3">

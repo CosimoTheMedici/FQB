@@ -4,20 +4,33 @@ import Card from "../../components/Card";
 import AgentLayout from "../../layouts/mainlayout/AgentLayout";
 
 const Addunit = () => {
+
+    // property_id: 0,
+    // rent: 0,
+    // classification_id: 0,
+    // water_charge: 0,
+    // kplc_charge: 0,
+    // garbage_charge: 0,
+    // description: "",
+    // occupied: 0,
+    // status: 0,
+    // created_by: 0,
+
+
   return (
     <Row>
       <Col sm="12" lg="12">
         <Card>
           <Card.Header className="d-flex justify-content-between">
             <div className="header-title">
-              <h4 className="card-title">Basic Form</h4>
+              <h4 className="card-title">Add Units</h4>
             </div>
           </Card.Header>
           <Card.Body>
-            <p>
+            {/* <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
               vulputate, ex ac venenatis mollis, diam nibh finibus leo
-            </p>
+            </p> */}
             <Form as={Row}>
               <Col sm="12" lg="6">
                 <Form.Group className="mb-3">
@@ -25,6 +38,7 @@ const Addunit = () => {
                   <Form.Control
                     type="text"
                     id="name"
+                    name="name"
                     placeholder="Enter name"
                   />
                 </Form.Group>
