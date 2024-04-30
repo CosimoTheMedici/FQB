@@ -9,6 +9,7 @@ import { PiDotsThreeOutlineVertical } from "react-icons/pi";
 import {Button, Modal, Nav, Tab} from 'react-bootstrap'
 import { Data_table,Header_table } from "../../utilities/data";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import axios from "axios";
 
 
 
@@ -20,7 +21,19 @@ const AgentOwnerProperties = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const axiosPrivate = useAxiosPrivate();
-
+async function getUser() {
+  try {
+    const response = await axios.get('https://a9e1-105-160-94-127.ngrok-free.app/estate/properties/view', {
+      headers: {
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDg3ODI1LCJqdGkiOiI5OWU3YjEwMGNlNGM0MzhiODdkZjQwYjhjMWMxMjJjYiIsInVzZXJfaWQiOjQsInJvbGUiOiJBR0VOVCIsImVtYWlsIjoiZ2VybWFpbjFAZ21haWwuY29tIn0._BR_7Vhm8-p9qGUGMRi9nH37_wR-rXPu1jf6uGt09KY`,
+        'Content-Type': 'application/json'
+      }
+    });
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
   async function fetchProperties() {
     try {
@@ -33,13 +46,16 @@ const AgentOwnerProperties = () => {
       // const fetchTenantsResponses = await axiosPrivate.get(`/estate/properties/view`);
       // console.log("fetchTenantsResponses",fetchTenantsResponses)
 
-      const fetchTenantsResponses = await fetch("http://50.17.75.252:8000/estate/properties/view", {
+      //const fetchTenantsResponses = await fetch("http://50.17.75.252:8000/estate/properties/view", {
+      const fetchTenantsResponses = await fetch("http://50.17.75.252:8000/estate/users/view", {
         method: 'GET',
         headers: {
             'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0MjU1MTkzLCJqdGkiOiI0YjYxZjYwNzUwOWI0ZDdiYTM0MGFjYzI5YWMzYjc2ZCIsInVzZXJfaWQiOjQsInJvbGUiOiJBR0VOVCIsImVtYWlsIjoiZ2VybWFpbjFAZ21haWwuY29tIn0.crnaZtBgC9GlvS7DrB2ccD0aa6GH6-eBpASn7tg293c`,
             'Content-Type': 'application/json'
         }
     });
+
+
 
       if (fetchTenantsResponses) {
         //setIsLoading(false);
@@ -57,7 +73,8 @@ const AgentOwnerProperties = () => {
   }
 
   useEffect(() => {
-    fetchProperties()
+    //fetchProperties()
+    getUser()
 
   }, [])
   
