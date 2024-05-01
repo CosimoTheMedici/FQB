@@ -23,9 +23,9 @@ const AgentOwnerProperties = () => {
   const axiosPrivate = useAxiosPrivate();
 async function getUser() {
   try {
-    const response = await axios.get('https://a9e1-105-160-94-127.ngrok-free.app/estate/properties/view', {
+    const response = await axios.get('http://50.17.75.252:8000/estate/properties/view', {
       headers: {
-        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDg3ODI1LCJqdGkiOiI5OWU3YjEwMGNlNGM0MzhiODdkZjQwYjhjMWMxMjJjYiIsInVzZXJfaWQiOjQsInJvbGUiOiJBR0VOVCIsImVtYWlsIjoiZ2VybWFpbjFAZ21haWwuY29tIn0._BR_7Vhm8-p9qGUGMRi9nH37_wR-rXPu1jf6uGt09KY`,
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NTkxMTEyLCJqdGkiOiJmNDIzZTJmNDAwN2Y0OTgzYTkyMTBiMGI1YjdlNjlkMiIsInVzZXJfaWQiOjQsInJvbGUiOiJBR0VOVCIsImVtYWlsIjoiZ2VybWFpbjFAZ21haWwuY29tIn0.0gjh79O0FYxucygmk6Zd3OjM1rie_fN17Spkvu9cnjY`,
         'Content-Type': 'application/json'
       }
     });
@@ -43,17 +43,17 @@ async function getUser() {
       //   offset: 0,
       // });
 
-      // const fetchTenantsResponses = await axiosPrivate.get(`/estate/properties/view`);
-      // console.log("fetchTenantsResponses",fetchTenantsResponses)
+       const fetchTenantsResponses = await axiosPrivate.get(`/estate/properties/view`);
+       console.log("fetchTenantsResponses",fetchTenantsResponses)
 
       //const fetchTenantsResponses = await fetch("http://50.17.75.252:8000/estate/properties/view", {
-      const fetchTenantsResponses = await fetch("http://50.17.75.252:8000/estate/users/view", {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0MjU1MTkzLCJqdGkiOiI0YjYxZjYwNzUwOWI0ZDdiYTM0MGFjYzI5YWMzYjc2ZCIsInVzZXJfaWQiOjQsInJvbGUiOiJBR0VOVCIsImVtYWlsIjoiZ2VybWFpbjFAZ21haWwuY29tIn0.crnaZtBgC9GlvS7DrB2ccD0aa6GH6-eBpASn7tg293c`,
-            'Content-Type': 'application/json'
-        }
-    });
+     // const fetchTenantsResponses = await fetch("http://50.17.75.252:8000/estate/users/view", {
+    //     method: 'GET',
+    //     headers: {
+    //         'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NTkxMTEyLCJqdGkiOiJmNDIzZTJmNDAwN2Y0OTgzYTkyMTBiMGI1YjdlNjlkMiIsInVzZXJfaWQiOjQsInJvbGUiOiJBR0VOVCIsImVtYWlsIjoiZ2VybWFpbjFAZ21haWwuY29tIn0.0gjh79O0FYxucygmk6Zd3OjM1rie_fN17Spkvu9cnjY`,
+    //         'Content-Type': 'application/json'
+    //     }
+    // });
 
 
 
@@ -73,7 +73,7 @@ async function getUser() {
   }
 
   useEffect(() => {
-    //fetchProperties()
+    fetchProperties()
     getUser()
 
   }, [])

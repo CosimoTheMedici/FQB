@@ -60,10 +60,11 @@ const SignIn = () => {
        };
        console.log("payload",payload)
        try {
-         const { data: fetchLoginResponses, status } = await axiosPublic.post(`estate/login`, payload,
-         {
-           withCredentials: true,
-         });
+         const { data: fetchLoginResponses, status } = await axiosPublic.post(`estate/login`, payload
+         // {
+         //   withCredentials: true,
+         // }
+         );
         console.log("fetchLoginResponses",fetchLoginResponses)
 
          if(status === 200){

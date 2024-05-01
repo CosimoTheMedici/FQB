@@ -6,206 +6,206 @@ import { Data_table } from "./data";
 
 
 
-const TableComponent = () => {
-    const [pageCount, setPageCount] = useState(11)
-    const [pager, setPager] = useState(false)
+// const TableComponent = () => {
+//     const [pageCount, setPageCount] = useState(11)
+//     const [pager, setPager] = useState(false)
     
 
 
 
 
-      const handlePageClick = (data) => {
-        console.log(data.selected);
-        let page = data.selected +1;
-        pager ===true ?pagedata(page,9):getMovieListData(page,limit);
-        console.log("pager",pager)
+//       const handlePageClick = (data) => {
+//         console.log(data.selected);
+//         let page = data.selected +1;
+//         pager ===true ?pagedata(page,9):getMovieListData(page,limit);
+//         console.log("pager",pager)
         
     
-      }
+//       }
 
-      const pagedata = (page,limit) => {
+//       const pagedata = (page,limit) => {
 
-           const startIndex = (page - 1) * limit
-           const endIndex = page * limit
-           setMovieData(Data_table.slice(startIndex,endIndex))
+//            const startIndex = (page - 1) * limit
+//            const endIndex = page * limit
+//            setMovieData(Data_table.slice(startIndex,endIndex))
         
     
-      }
-  return (
-     <>
-    {/* //   <Row>
-    //     <Col sm="12">
-    //       <Card>
-    //         <Card.Header className="d-flex justify-content-between">
-    //           <div className="header-title">
-    //             <h4 className="card-title">Bootstrap Datatables</h4>
-    //           </div>
-    //         </Card.Header>
-    //         <Card.Body> */}
+//       }
+//   return (
+//      <>
+//     {/* //   <Row>
+//     //     <Col sm="12">
+//     //       <Card>
+//     //         <Card.Header className="d-flex justify-content-between">
+//     //           <div className="header-title">
+//     //             <h4 className="card-title">Bootstrap Datatables</h4>
+//     //           </div>
+//     //         </Card.Header>
+//     //         <Card.Body> */}
               
-              <div className="table-responsive border-bottom my-3">
-                <Table
-                  responsive
-                  striped
-                  id="datatable"
-                  className=""
-                  data-toggle="data-table"
-                >
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {Data_table.map((item) => (
-                      <tr key={item.age}>
-                        <td>{item.name}</td>
-                        <td>{item.position}</td>
-                        <td>{item.office}</td>
-                        <td>{item.age}</td>
-                        <td>{item.startdate}</td>
-                        <td>{item.salary}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                    </tr>
-                  </tfoot>
-                </Table>
+//               <div className="table-responsive border-bottom my-3">
+//                 <Table
+//                   responsive
+//                   striped
+//                   id="datatable"
+//                   className=""
+//                   data-toggle="data-table"
+//                 >
+//                   <thead>
+//                     <tr>
+//                       <th>Name</th>
+//                       <th>Position</th>
+//                       <th>Office</th>
+//                       <th>Age</th>
+//                       <th>Start date</th>
+//                       <th>Salary</th>
+//                     </tr>
+//                   </thead>
+//                   <tbody>
+//                     {Data_table.map((item) => (
+//                       <tr key={item.age}>
+//                         <td>{item.name}</td>
+//                         <td>{item.position}</td>
+//                         <td>{item.office}</td>
+//                         <td>{item.age}</td>
+//                         <td>{item.startdate}</td>
+//                         <td>{item.salary}</td>
+//                       </tr>
+//                     ))}
+//                   </tbody>
+//                   <tfoot>
+//                     <tr>
+//                       <th>Name</th>
+//                       <th>Position</th>
+//                       <th>Office</th>
+//                       <th>Age</th>
+//                       <th>Start date</th>
+//                       <th>Salary</th>
+//                     </tr>
+//                   </tfoot>
+//                 </Table>
              
 
-<ReactPaginate
-      previousLabel={"previous"}
-      nextLabel={"next"}
-      breakLabel={"..."}
-      pageCount={pageCount}
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={3}
-      onPageChange={handlePageClick}
-      containerClassName={'pagination justify-content-center text-color'}
-      pageClassName={'page-item'}
-      pageLinkClassName={'page-link'}
-      previousClassName={'page-item'}
-      previousLinkClassName={'page-link'}
-      nextClassName={'page-item'}
-      nextLinkClassName={'page-link'}
-      breakClassName={'page-item'}
-      breakLinkClassName={'page-link'}
-      activeClassName={'active'}
-    />
+// <ReactPaginate
+//       previousLabel={"previous"}
+//       nextLabel={"next"}
+//       breakLabel={"..."}
+//       pageCount={pageCount}
+//       marginPagesDisplayed={2}
+//       pageRangeDisplayed={3}
+//       onPageChange={handlePageClick}
+//       containerClassName={'pagination justify-content-center text-color'}
+//       pageClassName={'page-item'}
+//       pageLinkClassName={'page-link'}
+//       previousClassName={'page-item'}
+//       previousLinkClassName={'page-link'}
+//       nextClassName={'page-item'}
+//       nextLinkClassName={'page-link'}
+//       breakClassName={'page-item'}
+//       breakLinkClassName={'page-link'}
+//       activeClassName={'active'}
+//     />
 
-              </div>
-            {/* </Card.Body>
-          </Card>
-        </Col>
-      </Row>*/}
-    </> 
-  );
-};
+//               </div>
+//             {/* </Card.Body>
+//           </Card>
+//         </Col>
+//       </Row>*/}
+//     </> 
+//   );
+// };
 
-export default TableComponent;
+// export default TableComponent;
 
 
 
-export const TableComponent1 = (props) => {
-  const [movieData, setMovieData] = useState([]);
-  const [pageCount, setPageCount] = useState(11);
-  const [pager, setPager] = useState(false);
+// export const TableComponent1 = (props) => {
+//   const [movieData, setMovieData] = useState([]);
+//   const [pageCount, setPageCount] = useState(11);
+//   const [pager, setPager] = useState(false);
 
-  const limit = 9; // Number of items per page
+//   const limit = 9; // Number of items per page
 
-  const handlePageClick = (data) => {
-    console.log(data.selected);
-    const page = data.selected + 1;
-    pager ? pagedata(page, limit) : getMovieListData(page, limit);
-    console.log("pager", pager);
-  }
+//   const handlePageClick = (data) => {
+//     console.log(data.selected);
+//     const page = data.selected + 1;
+//     pager ? pagedata(page, limit) : getMovieListData(page, limit);
+//     console.log("pager", pager);
+//   }
 
-  const pagedata = (page, limit) => {
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
-    setMovieData(Data_table.slice(startIndex, endIndex));
-  }
+//   const pagedata = (page, limit) => {
+//     const startIndex = (page - 1) * limit;
+//     const endIndex = page * limit;
+//     setMovieData(Data_table.slice(startIndex, endIndex));
+//   }
 
-  const getMovieListData = (page, limit) => {
-    // Replace this with your actual API call to fetch movie data
-    // Example: fetchMovies(page, limit).then(data => setMovieData(data));
-    console.log("Fetching data for page", page);
-  }
+//   const getMovieListData = (page, limit) => {
+//     // Replace this with your actual API call to fetch movie data
+//     // Example: fetchMovies(page, limit).then(data => setMovieData(data));
+//     console.log("Fetching data for page", page);
+//   }
 
-  return (
-    <>
-      <div className="table-responsive border-bottom my-3">
-        <Table responsive striped id="datatable" className="" data-toggle="data-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
-            </tr>
-          </thead>
-          <tbody>
-            {movieData.map((item) => (
-              <tr key={item.age}>
-                <td>{item.name}</td>
-                <td>{item.position}</td>
-                <td>{item.office}</td>
-                <td>{item.age}</td>
-                <td>{item.startdate}</td>
-                <td>{item.salary}</td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
-            </tr>
-          </tfoot>
-        </Table>
+//   return (
+//     <>
+//       <div className="table-responsive border-bottom my-3">
+//         <Table responsive striped id="datatable" className="" data-toggle="data-table">
+//           <thead>
+//             <tr>
+//               <th>Name</th>
+//               <th>Position</th>
+//               <th>Office</th>
+//               <th>Age</th>
+//               <th>Start date</th>
+//               <th>Salary</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {movieData.map((item) => (
+//               <tr key={item.age}>
+//                 <td>{item.name}</td>
+//                 <td>{item.position}</td>
+//                 <td>{item.office}</td>
+//                 <td>{item.age}</td>
+//                 <td>{item.startdate}</td>
+//                 <td>{item.salary}</td>
+//               </tr>
+//             ))}
+//           </tbody>
+//           <tfoot>
+//             <tr>
+//               <th>Name</th>
+//               <th>Position</th>
+//               <th>Office</th>
+//               <th>Age</th>
+//               <th>Start date</th>
+//               <th>Salary</th>
+//             </tr>
+//           </tfoot>
+//         </Table>
 
-        <ReactPaginate
-          previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={3}
-          onPageChange={handlePageClick}
-          containerClassName={'pagination justify-content-center text-color'}
-          pageClassName={'page-item'}
-          pageLinkClassName={'page-link'}
-          previousClassName={'page-item'}
-          previousLinkClassName={'page-link'}
-          nextClassName={'page-item'}
-          nextLinkClassName={'page-link'}
-          breakClassName={'page-item'}
-          breakLinkClassName={'page-link'}
-          activeClassName={'active'}
-        />
-      </div>
-    </>
-  );
-};
+//         <ReactPaginate
+//           previousLabel={"previous"}
+//           nextLabel={"next"}
+//           breakLabel={"..."}
+//           pageCount={pageCount}
+//           marginPagesDisplayed={2}
+//           pageRangeDisplayed={3}
+//           onPageChange={handlePageClick}
+//           containerClassName={'pagination justify-content-center text-color'}
+//           pageClassName={'page-item'}
+//           pageLinkClassName={'page-link'}
+//           previousClassName={'page-item'}
+//           previousLinkClassName={'page-link'}
+//           nextClassName={'page-item'}
+//           nextLinkClassName={'page-link'}
+//           breakClassName={'page-item'}
+//           breakLinkClassName={'page-link'}
+//           activeClassName={'active'}
+//         />
+//       </div>
+//     </>
+//   );
+// };
 
 export const TableComponent2 = (props) => {
   console.log("props",props.tableheaders[0].label)
