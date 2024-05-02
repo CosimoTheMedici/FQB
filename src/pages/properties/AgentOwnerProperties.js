@@ -18,6 +18,7 @@ import axios from "axios";
 
 const AgentOwnerProperties = () => {
   const [show, setShow] = useState(false);
+  const [properties, setProperties] = useState();
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const axiosPrivate = useAxiosPrivate();
@@ -43,9 +44,13 @@ async function getUser() {
       //   offset: 0,
       // });
 
-       const fetchTenantsResponses = await axiosPrivate.get(`/estate/properties/view`);
-       console.log("fetchTenantsResponses",fetchTenantsResponses)
-
+       const {data , status } = await axiosPrivate.get(`/estate/properties/view`);
+       console.log("fetchPropertiesResponses",data.results.length)
+       //if (Array.isArray(data.results)) {
+        // let results = Object.values(data.results);
+        // console.log("fetchPropertiesResponses results",typeof results)
+        // console.log("fetchPropertiesResponses", Array.isArray(data.results))
+   
       //const fetchTenantsResponses = await fetch("http://50.17.75.252:8000/estate/properties/view", {
      // const fetchTenantsResponses = await fetch("http://50.17.75.252:8000/estate/users/view", {
     //     method: 'GET',
@@ -57,9 +62,9 @@ async function getUser() {
 
 
 
-      if (fetchTenantsResponses) {
+      if (status ==200 || status ==201) {
         //setIsLoading(false);
-        //setBillers(fetchBillerResponse.results);
+        setProperties(data.results);
         
       } else {
         //setIsLoading(false);
@@ -74,7 +79,7 @@ async function getUser() {
 
   useEffect(() => {
     fetchProperties()
-    getUser()
+    //getUser()
 
   }, [])
   
@@ -91,7 +96,7 @@ async function getUser() {
             </Card.Header>
             <Card.Body>
              <TableComponent2
-             tabledata = { Data_table }
+             tabledata =  { properties }
              tableheaders = { Header_table }            
 
              scopedSlots={{

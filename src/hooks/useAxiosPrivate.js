@@ -12,7 +12,7 @@ const useAxiosPrivate = () => {
     const { auth } = useAuth();
 
     useEffect(() => {
-        console.log("herdde",auth.accessToken)
+        //console.log("herdde",auth.accessToken)
         const requestIntercept = axiosInstance.interceptors.request.use(
             (config) => {
                 if(!config.headers['Authorization']){

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { Row, Col, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactPaginate from 'react-paginate'
@@ -208,11 +208,13 @@ import { Data_table } from "./data";
 // };
 
 export const TableComponent2 = (props) => {
-  console.log("props",props.tableheaders[0].label)
-    const [movieData, setMovieData] = useState(props.tabledata);
+  console.log("props",props.tabledata)
+    const [movieData, setMovieData] = useState([]);
     const [tableHeaders, setTableHeaders] = useState(props.tableheaders);
     const [pageCount, setPageCount] = useState(0); // Will be updated after fetching data
     const limit = 9; // Number of items per page
+    const propData = props.tabledata
+
   
     useEffect(() => {
       // Simulate API call to fetch data from JSON file
@@ -223,17 +225,17 @@ export const TableComponent2 = (props) => {
       // Here, you would replace this with an actual API call to fetch data from a server
       // For demonstration purposes, we'll use a timeout to mimic an API call
       setTimeout(() => {
-        const totalItems = Data_table.length;
+        const totalItems = propData.length;
         setPageCount(Math.ceil(totalItems / limit));
-        setMovieData(Data_table.slice(0, limit)); // Initial data for the first page
-      }, 1000); // Simulated delay of 1 second
+        setMovieData(propData.slice(0, limit)); // Initial data for the first page
+      }, 5000); // Simulated delay of 1 second
     };
   
     const handlePageClick = ({ selected }) => {
       const page = selected + 1;
       const startIndex = (page - 1) * limit;
       const endIndex = page * limit;
-      setMovieData(Data_table.slice(startIndex, endIndex));
+      setMovieData(propData.slice(startIndex, endIndex));
     };
   
     return (
@@ -255,13 +257,16 @@ export const TableComponent2 = (props) => {
             </thead>
             <tbody>
               {movieData.map((item, index) => (
+
+               
                 <tr key={index}>
                   <td>{item.name}</td>
-                  <td>{item.position}</td>
-                  <td>{item.office}</td>
-                  <td>{item.age}</td>
-                  <td>{item.startdate}</td>
-                  <td>{item.salary}</td>
+                  <td>{item.email}</td>
+                  <td>{item.mobile}</td>
+                  <td>{item.address}</td>
+                  <td>{item.active}</td>
+                  <td>{item.location}</td>
+                  <td>{item.description}</td>
                   <td>{props.scopedSlots.ACTION(item)}</td>
                 </tr>
               ))}
