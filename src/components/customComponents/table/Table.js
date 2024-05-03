@@ -213,22 +213,25 @@ export const TableComponent2 = (props) => {
     const [tableHeaders, setTableHeaders] = useState(props.tableheaders);
     const [pageCount, setPageCount] = useState(0); // Will be updated after fetching data
     const limit = 9; // Number of items per page
-    const propData = props.tabledata
+   
 
   
     useEffect(() => {
       // Simulate API call to fetch data from JSON file
       fetchData();
-    }, []);
+    }, [props.tabledata]);
   
     const fetchData = () => {
       // Here, you would replace this with an actual API call to fetch data from a server
       // For demonstration purposes, we'll use a timeout to mimic an API call
-      setTimeout(() => {
+     // setTimeout(() => {
+      if(props.tabledata){
+        const propData = props.tabledata
         const totalItems = propData.length;
         setPageCount(Math.ceil(totalItems / limit));
         setMovieData(propData.slice(0, limit)); // Initial data for the first page
-      }, 5000); // Simulated delay of 1 second
+      //}, 5000); // Simulated delay of 1 second
+      }
     };
   
     const handlePageClick = ({ selected }) => {
@@ -260,13 +263,12 @@ export const TableComponent2 = (props) => {
 
                
                 <tr key={index}>
+                  <td>{index+1}</td>
                   <td>{item.name}</td>
                   <td>{item.email}</td>
                   <td>{item.mobile}</td>
                   <td>{item.address}</td>
-                  <td>{item.active}</td>
                   <td>{item.location}</td>
-                  <td>{item.description}</td>
                   <td>{props.scopedSlots.ACTION(item)}</td>
                 </tr>
               ))}

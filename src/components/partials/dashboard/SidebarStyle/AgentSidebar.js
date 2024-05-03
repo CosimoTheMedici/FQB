@@ -35,8 +35,8 @@ const AgentSidebar = memo((props) => {
   
     ];
     const properties_routesd = [
-      { path: '/view/units', label: 'View Units', icon: 'H' },
-      { path: '/add/units', label: 'View Units', icon: 'D' },
+      { path: '/units', label: 'View Units', icon: 'H' },
+      { path: '/add/units', label: 'Add Units', icon: 'D' },
   
     ];
     const sidebar_route_names = [

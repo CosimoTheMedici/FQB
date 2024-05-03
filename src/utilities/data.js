@@ -1,12 +1,16 @@
 export const Header_table = [
+  { label: "ID" },
   { label: "Name" },
-  { label: "Position" },
-  { label: "Office" },
-  { label: "Age" },
-  { label: "Start date" },
-  { label: "Salary" },
+  { label: "Email" },
+  { label: "Phone" },
+  { label: "address" },
+  { label: "location" },
   { label: "Action" },
 ];
+
+
+
+
 export const Data_table = [
   {
     name: "Airi Satou",

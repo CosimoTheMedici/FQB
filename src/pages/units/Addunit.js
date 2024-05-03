@@ -2,20 +2,70 @@ import React from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Card from "../../components/Card";
 import AgentLayout from "../../layouts/mainlayout/AgentLayout";
+import { unitsDetailsInitialState } from "../helpers/InitialStates";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 
 const Addunit = () => {
 
-    // property_id: 0,
-    // rent: 0,
-    // classification_id: 0,
-    // water_charge: 0,
-    // kplc_charge: 0,
-    // garbage_charge: 0,
-    // description: "",
-    // occupied: 0,
-    // status: 0,
-    // created_by: 0,
+  const [unitsDetails, setUnitsDetails] = useState(unitsDetailsInitialState);
+  const axiosInstance = useAxiosPrivate();
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("unitDetails--->", unitDetails);
+
+    const { name, address, email, mobile, location, description } =
+      propertiesDetails;
+
+    const check = [name, address, email, mobile, location, description].every((value) => value);
+    if (check === true) {
+      let payload = {
+        unit_name: unitDetails.unit_name,
+      };
+
+      try {
+        const createUnitsResponse = await axiosInstance.post(
+          "api/v1/units/create",
+          payload
+        );
+        console.log("createUnitsResponse", createUnitsResponse);
+        const { status } = createUnitsResponse;
+
+        if (status === 201) {
+          console.log("added");
+          successNotification("Unit added successful");
+          setUnitDetails(unitDetailsInitialState);
+        } else {
+          errorNotification("something went wrong");
+        }
+      } catch (ex) {
+        console.log({ ex });
+        errorNotification("Error:something went wrong");
+      }
+    } else if (check === false) {
+    }
+  };
+
+  const handleChange = ({ currentTarget: input }) => {
+    let name = input.id;
+    let value = input.value;
+
+    setPropertiesDetails({
+      ...propertiesDetails,
+      [name]: value,
+    });
+  };
+  // property_id: 0,
+  // rent: 0,
+  // classification_id: 0,
+  // name: "",
+  // water_charge: 0,
+  // kplc_charge: 0,
+  // garbage_charge: 0,
+  // description: "",
+  // occupied: 0,
+  // status: 0,
+  // created_by: 0,
 
   return (
     <Row>
