@@ -70,7 +70,7 @@ const AddProperties = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
               vulputate, ex ac venenatis mollis, diam nibh finibus leo
             </p> */}
-            <Form as={Row}>
+            <Form as={Row} onSubmit={handleSubmit}>
               <Col sm="12" lg="6">
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="name">Name:</Form.Label>

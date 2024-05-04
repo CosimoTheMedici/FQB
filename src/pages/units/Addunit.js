@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Card from "../../components/Card";
 import AgentLayout from "../../layouts/mainlayout/AgentLayout";
@@ -45,7 +45,7 @@ const Addunit = () => {
     } else if (check === false) {
     }
   };
-
+  const handleSubmit1 = async (event) => {console.log("kknfnjnvjfnvjndf")}
   const handleChange = ({ currentTarget: input }) => {
     let name = input.id;
     let value = input.value;
@@ -81,7 +81,9 @@ const Addunit = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
               vulputate, ex ac venenatis mollis, diam nibh finibus leo
             </p> */}
-            <Form as={Row}>
+            <form onSubmit={handleSubmit1}>
+            <Form as={Row} >
+
               <Col sm="12" lg="6">
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="name">Name:</Form.Label>
@@ -188,13 +190,14 @@ const Addunit = () => {
                   </Form.Check.Label>
                 </Form.Check>
               </div>
-              <Button type="button" variant="btn btn-primary">
+              <Button type="submit" variant="btn btn-primary">
                 Submit
               </Button>{" "}
-              <Button type="button" variant="btn btn-danger">
+              <Button type="submit" variant="btn btn-danger">
                 cancel
               </Button>
             </Form>
+            </form>
           </Card.Body>
         </Card>
       </Col>
