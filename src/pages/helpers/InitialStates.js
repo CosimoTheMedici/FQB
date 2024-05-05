@@ -22,7 +22,7 @@ export const propertiesDetailsInitialState = {
   name: "",
   address: "",
   email: "",
-  mobile: "",
+  phone: "",
   location: "",
   user_id: 0,
   owner: 0,

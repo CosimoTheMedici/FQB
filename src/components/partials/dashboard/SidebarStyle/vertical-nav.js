@@ -27,7 +27,7 @@ const VerticalNav = memo((props) => {
     const [active, setActive] = useState('')
     //location
     let location = useLocation();
-console.log('props',props.sidebar_route_names[0][0])
+//console.log('props',props.sidebar_route_names[0][0])
 
 
 

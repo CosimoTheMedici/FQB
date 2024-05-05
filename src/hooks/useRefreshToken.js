@@ -15,7 +15,7 @@ const useRefreshToken = () => {
         //var decoded = jwtDecode(data.accessToken);
         let data = localStorage.getItem('token')
         var decoded = jwtDecode(localStorage.getItem('token'));
-        console.log("decoded decoded",decoded)
+        //console.log("decoded decoded",decoded)
         
         //setAuth({user:email,roles:cat,accessToken:fetchLoginResponses.accessToken})
 

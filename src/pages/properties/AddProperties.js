@@ -4,38 +4,59 @@ import Card from "../../components/Card";
 import AgentLayout from "../../layouts/mainlayout/AgentLayout";
 import { propertiesDetailsInitialState } from "../helpers/InitialStates";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import useAuth from "../../hooks/useAuth";
+import { jwtDecode } from "jwt-decode";
+import { errorNotification, successNotification } from "../../utilities/notification";
 
 const AddProperties = () => {
   const [propertiesDetails, setPropertiesDetails] = useState(
     propertiesDetailsInitialState
   );
   const axiosInstance = useAxiosPrivate();
-
+  const { auth } = useAuth()
+   //console.log (jwtDecode(auth.accessToken))
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("unitDetails--->", unitDetails);
-
-    const { name, address, email, mobile, location, description } =
+    // {
+    //   "user_id": 0,
+    //   "owner": 0,
+    //   "active": true,
+    // }
+    const { name, address, email, phone, location, description } =
       propertiesDetails;
 
-    const check = [name, address, email, mobile, location, description].every((value) => value);
+    const check = [name, address, email, phone, location, description].every((value) => value);
     if (check === true) {
+const { user_id } = jwtDecode(auth.accessToken)
+
       let payload = {
-        unit_name: unitDetails.unit_name,
+      
+        name: propertiesDetails.name,
+        address: propertiesDetails.address,
+        email: propertiesDetails.email,
+        mobile: propertiesDetails.phone,
+        location: propertiesDetails.location,
+        user_id: user_id,
+        owner: user_id,
+        active: true,
+        description: propertiesDetails.description
+        
       };
+      console.log("payload",payload)
+
 
       try {
-        const createUnitsResponse = await axiosInstance.post(
-          "api/v1/units/create",
+         const { status } = await axiosInstance.post(
+          "/estate/properties/add",
           payload
         );
-        console.log("createUnitsResponse", createUnitsResponse);
-        const { status } = createUnitsResponse;
+        //console.log("createUnitsResponse", createUnitsResponse);
+        //const { status } = createUnitsResponse;
 
-        if (status === 201) {
-          console.log("added");
-          successNotification("Unit added successful");
-          setUnitDetails(unitDetailsInitialState);
+        if (status === 201 || status === 200) {
+          //console.log("added");
+          successNotification("Property added successful");
+          setPropertiesDetails(propertiesDetailsInitialState);
         } else {
           errorNotification("something went wrong");
         }
@@ -44,7 +65,7 @@ const AddProperties = () => {
         errorNotification("Error:something went wrong");
       }
     } else if (check === false) {
-    }
+   }
   };
 
   const handleChange = ({ currentTarget: input }) => {
@@ -70,7 +91,8 @@ const AddProperties = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
               vulputate, ex ac venenatis mollis, diam nibh finibus leo
             </p> */}
-            <Form as={Row} onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
+            <Form as={Row} >
               <Col sm="12" lg="6">
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="name">Name:</Form.Label>
@@ -112,29 +134,30 @@ const AddProperties = () => {
               </Col>
               <Col sm="12" lg="6">
                 <Row>
-                  <Col sm="4" lg="4">
+                  <Col sm="2" lg="2">
                     <Form.Group className="mb-3">
-                      <Form.Label htmlFor="mobile">Phone:</Form.Label>
+                      <Form.Label htmlFor="mobile">Code:</Form.Label>
                       <Form.Control
                         type="number"
                         id="mobile"
                         name="mobile"
-                        onChange={handleChange}
-                        value={propertiesDetails.mobile}
+                        //onChange={handleChange}
+                        value={254}
                         placeholder="Enter phone number"
+                        disabled
                       />
                     </Form.Group>
                   </Col>
-                  <Col sm="8" lg="8">
+                  <Col sm="10" lg="10">
                     <Form.Group className="mb-3">
-                      <Form.Label htmlFor="mobile">Mobile:</Form.Label>
+                      <Form.Label htmlFor="mobile">Phone:712345678</Form.Label>
                       <Form.Control
                         type="number"
-                        id="mobile"
-                        name="mobile"
+                        id="phone"
+                        name="phone"
                         onChange={handleChange}
-                        value={propertiesDetails.mobile}
-                        placeholder="Enter phone number"
+                        value={propertiesDetails.phone}
+                        placeholder="712345678"
                       />
                     </Form.Group>
                   </Col>
@@ -169,7 +192,7 @@ const AddProperties = () => {
               </Col>
               <Row>
                 <Col sm="6" lg="6">
-                  <Button type="button" variant="btn btn-primary">
+                  <Button type="submit" variant="btn btn-primary">
                     Submit
                   </Button>
                 </Col>
@@ -180,6 +203,7 @@ const AddProperties = () => {
                 </Col>
               </Row>{" "}
             </Form>
+            </form>
           </Card.Body>
         </Card>
       </Col>

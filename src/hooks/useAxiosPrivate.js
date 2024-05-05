@@ -36,6 +36,14 @@ const useAxiosPrivate = () => {
                     prevRequest.headers.Authorization = `Bearer ${newAccessToken}`;
                     return axiosInstance(prevRequest);
                 }
+                if(error?.response?.status === 401 && !prevRequest?.sent){
+console.log("this is the eerror supposed to log you out ")
+
+                }
+                if(error?.response?.status === 404 && !prevRequest?.sent){
+console.log("this is the error not found")
+
+                }
                 return Promise.reject(error);
             }
         );
