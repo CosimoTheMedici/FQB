@@ -238,7 +238,7 @@ export const TableComponent2 = (props) => {
       const page = selected + 1;
       const startIndex = (page - 1) * limit;
       const endIndex = page * limit;
-      setMovieData(propData.slice(startIndex, endIndex));
+      setMovieData(props.tabledata.slice(startIndex, endIndex));
     };
   
     return (
