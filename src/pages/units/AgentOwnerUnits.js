@@ -10,6 +10,10 @@ import {Button, Modal, Nav, Tab} from 'react-bootstrap'
 import { Data_table,Header_table } from "../../utilities/data";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import axios from "axios";
+import { useDispatch,useSelector } from "react-redux";
+import { fetchProperties } from "../../redux/propertiesActions";
+
+
 
 
 
@@ -22,6 +26,15 @@ const AgentOwnerUnits = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const axiosPrivate = useAxiosPrivate();
+  const dispatch = useDispatch();
+  const utilityData = useSelector(state => state.utilityData); // Adapt this selector to your Redux state structure
+
+
+  useEffect(() => {
+    // Dispatch both fetchTenants and fetchProperties actions
+    //dispatch(fetchProperties(axiosPrivate));
+    dispatch(fetchUtilityData(axiosPrivate));
+  }, [dispatch]);
 
   async function fetchProperties() {
     try {

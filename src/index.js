@@ -14,13 +14,14 @@ import {
 //store
 import { Provider } from "react-redux";
 //reducer
-import { store } from "./store";
+
 
 import { IndexRouters } from "./router";
 import { SimpleRouter } from "./router/simple-router";
 import { DefaultRouter } from "./router/default-router";
 import SignIn from "./views/dashboard/auth/sign-in";
 import { AuthProvider } from "./context/AuthProvider";
+import store from "./redux/store";
 
 // const router = createBrowserRouter([
 //   {
@@ -36,11 +37,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
+     
         <AuthProvider>
           <Routes>
             <Route path="/*" element={<App />} />
           </Routes>
         </AuthProvider>
+       
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
