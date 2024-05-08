@@ -54,7 +54,6 @@ export const fetchPropertiesArray = (axiosPrivate) => async (dispatch) => {
 
   try {
     const {data:responseData,status} = await axiosPrivate.get('/estate/properties/view');
-    console.log("fetchPropertyResponse----me",getPropertyResponses)
   
     let data = [];
     let propertyArray = [];
