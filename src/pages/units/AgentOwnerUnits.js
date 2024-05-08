@@ -11,7 +11,6 @@ import { Data_table,Header_table } from "../../utilities/data";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import axios from "axios";
 import { useDispatch,useSelector } from "react-redux";
-import { fetchProperties } from "../../redux/propertiesActions";
 
 
 
