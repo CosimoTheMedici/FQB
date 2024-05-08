@@ -21,7 +21,7 @@ const AgentOwnerProperties = () => {
   const [properties, setProperties] = useState();
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-  const axiosPrivate = useAxiosPrivate();
+    const axiosPrivate = useAxiosPrivate();
 async function getUser() {
   try {
     const response = await axios.get('http://50.17.75.252:8000/estate/properties/view', {
