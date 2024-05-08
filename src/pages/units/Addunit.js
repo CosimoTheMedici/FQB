@@ -6,23 +6,21 @@ import { unitsDetailsInitialState } from "../helpers/InitialStates";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { jwtDecode } from "jwt-decode";
 import useAuth from "../../hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
 
 const Addunit = () => {
   const [unitsDetails, setUnitsDetails] = useState(unitsDetailsInitialState);
   const axiosInstance = useAxiosPrivate();
   const { auth } = useAuth();
+  const dispatch = useDispatch();
+  //const utilityChargesArray = useSelector((state) => state.utilityData.utilityData);
+  //const utilityChargesArray = useSelector((state) => state);
+
+  //console.log("utilityChargesArray   ",utilityChargesArray)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  // property_id: 0,
-  // rent: 0,
-  // classification_id: 0,
-  // name: "",
-  // water_charge: 0,
-  // kplc_charge: 0,
-  // garbage_charge: 0,
-  // description: "",
-  // occupied: 0,
+
 
     const { property_id, rent, classification_id, name, water_charge, kplc_charge, garbage_charge,description } = unitsDetails;
 

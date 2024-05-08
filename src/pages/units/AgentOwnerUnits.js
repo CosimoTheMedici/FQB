@@ -26,15 +26,16 @@ const AgentOwnerUnits = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const axiosPrivate = useAxiosPrivate();
-  const dispatch = useDispatch();
-  const utilityData = useSelector(state => state.utilityData); // Adapt this selector to your Redux state structure
+  //const dispatch = useDispatch();
+  //const utilityData = useSelector(state => state); // Adapt this selector to your Redux state structure
+  //console.log("utilityData",utilityData)
 
 
-  useEffect(() => {
-    // Dispatch both fetchTenants and fetchProperties actions
-    //dispatch(fetchProperties(axiosPrivate));
-    dispatch(fetchUtilityData(axiosPrivate));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   // Dispatch both fetchTenants and fetchProperties actions
+  //   //dispatch(fetchProperties(axiosPrivate));
+  //   dispatch(fetchUtilityData(axiosPrivate));
+  // }, [dispatch]);
 
   async function fetchProperties() {
     try {

@@ -21,7 +21,8 @@ import { SimpleRouter } from "./router/simple-router";
 import { DefaultRouter } from "./router/default-router";
 import SignIn from "./views/dashboard/auth/sign-in";
 import { AuthProvider } from "./context/AuthProvider";
-import store from "./redux/store";
+import store1 from "./redux/store";
+import {store} from "./store";
 
 // const router = createBrowserRouter([
 //   {
@@ -36,6 +37,7 @@ import store from "./redux/store";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
+    
       <BrowserRouter>
      
         <AuthProvider>
@@ -45,6 +47,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </AuthProvider>
        
       </BrowserRouter>
+   
     </Provider>
   </React.StrictMode>
 );
