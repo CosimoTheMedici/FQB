@@ -51,7 +51,7 @@ const Addunit = () => {
    
 
        const {data:responseData , status } = await axiosPrivate.get(`estate/classifications/view`);
-       console.log("fetchPropertiesResponses",data.results.length)
+       //console.log("fetchPropertiesResponses",data.results.length)
 
        
  
