@@ -36,7 +36,7 @@ const AgentOwnerUnits = () => {
   //   dispatch(fetchUtilityData(axiosPrivate));
   // }, [dispatch]);
 
-  async function fetchProperties() {
+  async function fetchUnits() {
     try {
      // setIsLoading(true);
       // const { dataRes: fetchBillerResponse } = await getBillers({
@@ -44,8 +44,8 @@ const AgentOwnerUnits = () => {
       //   offset: 0,
       // });
 
-       const {data , status } = await axiosPrivate.get(`/estate/properties/view`);
-       console.log("fetchPropertiesResponses",data.results.length)
+       const {data , status } = await axiosPrivate.get(`estate/units/view`);
+       console.log("fetchfetchUnitsResponses",data.results.length)
        //if (Array.isArray(data.results)) {
         // let results = Object.values(data.results);
         // console.log("fetchPropertiesResponses results",typeof results)
@@ -78,7 +78,7 @@ const AgentOwnerUnits = () => {
   }
 
   useEffect(() => {
-    fetchProperties()
+    fetchUnits()
     //getUser()
 
   }, [])

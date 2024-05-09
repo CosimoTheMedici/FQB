@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Card from "../../components/Card";
 import AgentLayout from "../../layouts/mainlayout/AgentLayout";
@@ -6,11 +6,11 @@ import { unitsDetailsInitialState } from "../helpers/InitialStates";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { jwtDecode } from "jwt-decode";
 import useAuth from "../../hooks/useAuth";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Addunit = () => {
   const [unitsDetails, setUnitsDetails] = useState(unitsDetailsInitialState);
-  const axiosInstance = useAxiosPrivate();
+  const axiosPrivate = useAxiosPrivate();
   const { auth } = useAuth();
   const dispatch = useDispatch();
   //const utilityChargesArray = useSelector((state) => state.utilityData.utilityData);
@@ -18,6 +18,64 @@ const Addunit = () => {
 
   //console.log("utilityChargesArray   ",utilityChargesArray)
 
+
+  useEffect(() => {
+    
+  
+  
+  }, [])
+
+  async function fetchPropertiesArray() {
+    try {
+   
+
+       const {data , status } = await axiosPrivate.get(`/estate/properties/view`);
+       console.log("fetchPropertiesResponses",data.results.length)
+ 
+
+      if (status ==200 || status ==201) {
+        setProperties(data.results);
+        
+      } else {
+        //setIsLoading(false);
+        //errorNotification("Unable to fetch Biller list");
+      }
+    } catch (ex) {
+      //setIsLoading(false);
+      
+      //errorNotification("Unable to fetch Biller list");
+    }
+  }
+  async function fetchClassificationsArray() {
+    try {
+   
+
+       const {data , status } = await axiosPrivate.get(`estate/classifications/view`);
+       console.log("fetchPropertiesResponses",data.results.length)
+
+       
+ 
+
+      if (status ==200 || status ==201) {
+        setProperties(data.results);
+
+        const processedData = responseData.map((utilityData, index) => ({
+          ...utilityData,
+          _id: index + 1,
+        }));
+        
+      } else {
+        //setIsLoading(false);
+        //errorNotification("Unable to fetch Biller list");
+      }
+    } catch (ex) {
+      //setIsLoading(false);
+      
+      //errorNotification("Unable to fetch Biller list");
+    }
+  }
+
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
 
