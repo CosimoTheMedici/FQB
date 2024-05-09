@@ -34,7 +34,7 @@ const Addunit = () => {
  
 
       if (status ==200 || status ==201) {
-        setProperties(data.results);
+        //setProperties(data.results);
         
       } else {
         //setIsLoading(false);
@@ -50,14 +50,14 @@ const Addunit = () => {
     try {
    
 
-       const {data , status } = await axiosPrivate.get(`estate/classifications/view`);
+       const {data:responseData , status } = await axiosPrivate.get(`estate/classifications/view`);
        console.log("fetchPropertiesResponses",data.results.length)
 
        
  
 
       if (status ==200 || status ==201) {
-        setProperties(data.results);
+        //setProperties(data.results);
 
         const processedData = responseData.map((utilityData, index) => ({
           ...utilityData,
