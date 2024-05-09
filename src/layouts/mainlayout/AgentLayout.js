@@ -9,8 +9,8 @@ import AgentSidebar from '../../components/partials/dashboard/SidebarStyle/Agent
 const AgentLayout = (Component) => function HOC() {
 
   const properties_routes = [
-    { path: '/horizontal', label: 'View Properties', icon: 'H' },
-    { path: '/dual-horizontal', label: 'Add Properties', icon: 'D' },
+    { path: '/horizontal', label: 'View Properties', icon: 'V P' },
+    { path: '/dual-horizontal', label: 'Add Properties', icon: 'A P' },
 
   ];
   const properties_routesd = [

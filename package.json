@@ -2,11 +2,15 @@
   "name": "hope-ui-react",
   "version": "2.0.0",
   "private": true,
+  "homepage": "https://github.com/CosimoTheMedici/FQB/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -74,6 +78,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "gh-pages": "^6.1.1",
     "sass": "^1.49.0",
     "sass-loader": "^13.2.0",
     "typescript": "^4.7.4"
