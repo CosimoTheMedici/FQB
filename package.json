@@ -2,7 +2,7 @@
   "name": "hope-ui-react",
   "version": "2.0.0",
   "private": true,
-  "homepage": "https://github.com/CosimoTheMedici/FQB/",
+  "homepage": "https://cosimothemedici.github.io/FQB",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

@@ -21,7 +21,8 @@ const Addunit = () => {
 
   useEffect(() => {
     
-  
+    fetchClassificationsArray();
+    fetchPropertiesArray();
   
   }, [])
 
@@ -29,13 +30,18 @@ const Addunit = () => {
     try {
    
 
-       const {data , status } = await axiosPrivate.get(`/estate/properties/view`);
+       const {data:responseData , status } = await axiosPrivate.get(`/estate/properties/view`);
        console.log("fetchPropertiesResponses",data.results.length)
  
 
       if (status ==200 || status ==201) {
         //setProperties(data.results);
-        
+
+        const processedData = responseData.map((utilityData, index) => ({
+          ...utilityData,
+          _id: index + 1,
+        }));
+        console.log("processedData",processedData)
       } else {
         //setIsLoading(false);
         //errorNotification("Unable to fetch Biller list");
