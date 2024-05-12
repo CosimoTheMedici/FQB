@@ -39,9 +39,15 @@ const AgentSidebar = memo((props) => {
       { path: '/add/units', label: 'Add Units', icon: 'D' },
   
     ];
+    const tenants_routes = [
+      { path: '/units', label: 'View Units', icon: 'H' },
+      { path: '/add/units', label: 'Add Units', icon: 'D' },
+  
+    ];
     const sidebar_route_names = [
       {  labelheader: 'properties', labelhead: 'Manage Properties' },
       {  labelheader: 'Units', labelhead: 'Manage Units' },
+      {  labelheader: 'Tenants', labelhead: 'Manage Tenants' },
       
   
     ];
@@ -141,7 +147,7 @@ const AgentSidebar = memo((props) => {
         >
           {/* sidebar-list class to be added after replace css */}
           <div className="sidebar-list navbar-collapse" id="sidebar">
-            <VerticalNav sidebar_route_names = {[sidebar_route_names]} sideroutes={[properties_routes,properties_routesd]}/>
+            <VerticalNav sidebar_route_names = {[sidebar_route_names]} sideroutes={[properties_routes,properties_routesd,tenants_routes]}/>
           </div>
         </div>
         <div className="sidebar-footer"></div>
