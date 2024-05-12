@@ -29,3 +29,16 @@ export const propertiesDetailsInitialState = {
   active: true,
   description: "",
 };
+
+export const tenantDetailsInitialState = {
+  first_name: "",
+  last_name: "",
+  id_number: "",
+  email_address: "",
+  phone_number: "",
+  emergency_phone_number: "",
+  emergency_relation: "",
+  emergency_names: "",
+  unit_id: 0,
+  property_id: 0,
+};

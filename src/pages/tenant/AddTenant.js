@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Card from "../../components/Card";
 import AgentLayout from "../../layouts/mainlayout/AgentLayout";
-import { unitsDetailsInitialState } from "../helpers/InitialStates";
+import { tenantDetailsInitialState } from "../helpers/InitialStates";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { jwtDecode } from "jwt-decode";
 import useAuth from "../../hooks/useAuth";
 import { useDispatch } from "react-redux";
 
-const Addunit = () => {
-  const [unitsDetails, setUnitsDetails] = useState(unitsDetailsInitialState);
+const AddTenant = () => {
+  const [tenantDetails, setTenantDetails] = useState(tenantDetailsInitialState);
   const [propertyArray, setPropertiesArray] = useState([]);
-  const [classificationArray, setClassificationArray] = useState([]);
+  const [unitArray, setUnitArray] = useState([]);
   const axiosPrivate = useAxiosPrivate();
   const { auth } = useAuth();
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const Addunit = () => {
 
   useEffect(() => {
     
-    fetchClassificationsArray();
+    fetchUnitArray();
     fetchPropertiesArray();
   
   }, [])
@@ -66,7 +66,7 @@ const Addunit = () => {
       //errorNotification("Unable to fetch Biller list");
     }
   }
-  async function fetchClassificationsArray() {
+  async function fetchUnitArray() {
     try {
    
 
@@ -92,7 +92,7 @@ const Addunit = () => {
           };
         });
 
-        setClassificationArray(processedData)
+        setUnitArray(processedData)
 
         
       } else {
@@ -109,28 +109,30 @@ const Addunit = () => {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
+   
 
+    const { first_name, last_name, id_number, email_address, phone_number, emergency_phone_number, garbage_charge,emergency_relation,emergency_names } = tenantDetails;
 
-    const { property_id, rent, classification_id, name, water_charge, kplc_charge, garbage_charge,description } = unitsDetails;
-
-    const check = [property_id, rent, classification_id, name, water_charge, kplc_charge, garbage_charge,description].every(
+    const check = [first_name, last_name, id_number, email_address,phone_number, emergency_phone_number, garbage_charge,emergency_relation,emergency_names].every(
       (value) => value
     );
     if (check === true) {
       const { user_id } = jwtDecode(auth.accessToken);
 
       let payload = {
-        property_id: unitsDetails.property_id,
-        rent: unitsDetails.rent,
-        classification_id: unitsDetails,
-        name: unitsDetails.name,
-        water_charge: unitsDetails.water_charge,
-        kplc_charge: unitsDetails.kplc_charge,
-        garbage_charge: unitsDetails.garbage_charge,
-        description: unitsDetails.description,
-        occupied: 0,
-        status: 0,
+        first_name: tenantDetails.first_name,
+        last_name: tenantDetails.last_name,
+        id_number: tenantDetails.id_number,
+        email_address: tenantDetails.email_address,
+        phone_number: tenantDetails.phone_number,
+        emergency_phone_number: tenantDetails.emergency_phone_number,
+        emergency_relation: tenantDetails.emergency_relation,
+        emergency_names: tenantDetails.emergency_names,
+        unit_id: 0,
+        property_id: 0,
         created_by: user_id
+
+
       };
       console.log("payload", payload);
 
@@ -145,7 +147,7 @@ const Addunit = () => {
       //   if (status === 201 || status === 200) {
       //     //console.log("added");
       //     successNotification("Property added successful");
-      //     setUnitsDetails(unitsDetailsInitialState);
+      //     settenantDetails(tenantDetailsInitialState);
       //   } else {
       //     errorNotification("something went wrong");
       //   }
@@ -161,12 +163,24 @@ const Addunit = () => {
     let name = input.id;
     let value = input.value;
 
-    setUnitsDetails({
-      ...unitsDetails,
+    setTenantDetails({
+      ...tenantDetails,
       [name]: value,
     });
   };
+ // id	
+    // first_name
+    // last_name
+    // id_number
+    // email_address
+    // phone_number
 
+    // emergency_phone_number
+    // emergency_relation
+    // emergency_names	
+
+    // unit_id
+    // property_id
 
   return (
     <Row>
@@ -184,7 +198,9 @@ const Addunit = () => {
             </p> */}
             <form onSubmit={handleSubmit}>
               <Form as={Row}>
-                <Col sm="12" lg="6">
+               
+
+              <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
                     <Form.Label htmlFor="name">Property:</Form.Label>
                     <Form.Select
@@ -200,7 +216,7 @@ const Addunit = () => {
                 </Col>
                 <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
-                    <Form.Label htmlFor="name">Unit Type:</Form.Label>
+                    <Form.Label htmlFor="name">Unit Name:</Form.Label>
                     <Form.Select
                       className=" form-select-mb mb-3"
                       aria-label=".form-select-mb example"
@@ -213,88 +229,115 @@ const Addunit = () => {
                   </Form.Group>
                 </Col>
                
+               
+                
+
                 <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
-                    <Form.Label htmlFor="name">Unit Name:</Form.Label>
+                    <Form.Label htmlFor="name">First Name:</Form.Label>
                     <Form.Control
                       type="text"
-                      id="name"
-                      name="name"
-                      placeholder="Enter Unit Name"
+                      id="first_name"
+                      name="first_name"
+                      placeholder="Enter First Name"
                       onChange={handleChange}
-                      value={unitsDetails.name}
+                      value={tenantDetails.first_name}
                     />
                   </Form.Group>
                 </Col>
                 <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
-                    <Form.Label htmlFor="address">Rent Amount:</Form.Label>
+                    <Form.Label htmlFor="name">Last Name:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      id="last_name"
+                      name="last_name"
+                      placeholder="Enter Last Name"
+                      onChange={handleChange}
+                      value={tenantDetails.last_name}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col sm="12" lg="6">
+                  <Form.Group className="mb-3">
+                    <Form.Label htmlFor="address">Id Number:</Form.Label>
                     <Form.Control
                       type="number"
-                      id="rent"
-                      name="rent"
+                      id="id_number"
+                      name="id_number"
                       onChange={handleChange}
-                      value={unitsDetails.rent}
-                      placeholder="Enter Rent Amount"
+                      value={tenantDetails.rent}
+                      placeholder="Enter Id Number"
                     />
                   </Form.Group>
                 </Col>
                 <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
-                    <Form.Label htmlFor="email">Water Charge:</Form.Label>
+                    <Form.Label htmlFor="email">Email Address:</Form.Label>
                     <Form.Control
                       type="text"
-                      id="water_charge"
-                      name="water_charge"
+                      id="email_address"
+                      name="email_address"
                       onChange={handleChange}
-                      value={unitsDetails.water_charge}
-                      placeholder="Enter Water Charge"
+                      value={tenantDetails.email_address}
+                      placeholder="Enter Email Address"
                     />
                   </Form.Group>
                 </Col>
                 <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
-                    <Form.Label htmlFor="email">Stima Charge:</Form.Label>
+                    <Form.Label htmlFor="email">Phone Number:</Form.Label>
                     <Form.Control
-                      type="text"
-                      id="kplc_charge"
-                      name="kplc_charge"
+                      type="number"
+                      id="phone_number"
+                      name="phone_number"
                       onChange={handleChange}
-                      value={unitsDetails.kplc_charge}
-                      placeholder="Enter Stima Charge"
+                      value={tenantDetails.phone_number}
+                      placeholder="Enter Phone Number"
                     />
                   </Form.Group>
                 </Col>
 
                 <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
-                    <Form.Label htmlFor="email">Garbage Charge:</Form.Label>
+                    <Form.Label htmlFor="name">Emergency Names:</Form.Label>
                     <Form.Control
                       type="text"
-                      id="garbage_charge"
-                      name="garbage_charge"
+                      id="emergency_names"
+                      name="emergency_names"
+                      placeholder="Enter Emergency Names"
                       onChange={handleChange}
-                      value={unitsDetails.garbage_charge}
-                      placeholder="Enter Garbage Charge"
+                      value={tenantDetails.emergency_names}
                     />
                   </Form.Group>
                 </Col>
-                
-               
                 <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
-                    <Form.Label htmlFor="description">Description:</Form.Label>
+                    <Form.Label htmlFor="name">Emergency Relation:</Form.Label>
                     <Form.Control
-                      as="textarea"
-                      id="description"
-                      name="description"
+                      type="text"
+                      id="emergency_relation"
+                      name="emergency_relation"
+                      placeholder="Enter Emergency Relation"
                       onChange={handleChange}
-                      value={unitsDetails.description}
-                      rows={3}
-                      placeholder="Enter description"
+                      value={tenantDetails.emergency_relation}
                     />
                   </Form.Group>
                 </Col>
+                <Col sm="12" lg="6">
+                  <Form.Group className="mb-3">
+                    <Form.Label htmlFor="name">Emergency Phone Number:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      id="emergency_phone_number"
+                      name="emergency_phone_number"
+                      placeholder="Enter Emergency Phone Number"
+                      onChange={handleChange}
+                      value={tenantDetails.emergency_phone_number}
+                    />
+                  </Form.Group>
+                </Col>
+
                 <Row>
                   <Col sm="6" lg="6">
                     <Button type="submit" variant="btn btn-primary">
@@ -316,4 +359,4 @@ const Addunit = () => {
   );
 };
 
-export default AgentLayout(Addunit);
+export default AgentLayout(AddTenant);
