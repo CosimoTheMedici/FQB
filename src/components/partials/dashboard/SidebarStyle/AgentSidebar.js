@@ -40,8 +40,8 @@ const AgentSidebar = memo((props) => {
   
     ];
     const tenants_routes = [
-      { path: '/units', label: 'View Units', icon: 'H' },
-      { path: '/add/units', label: 'Add Units', icon: 'D' },
+      { path: '/tenants', label: 'View Tenants', icon: 'H' },
+      { path: '/add/tenants', label: 'Add Tenants', icon: 'D' },
   
     ];
     const sidebar_route_names = [
