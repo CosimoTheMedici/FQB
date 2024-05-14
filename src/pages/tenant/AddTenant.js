@@ -136,25 +136,25 @@ const AddTenant = () => {
       };
       console.log("payload", payload);
 
-      // try {
-      //   const { status } = await axiosInstance.post(
-      //     "/estate/properties/add",
-      //     payload
-      //   );
-      //   //console.log("createUnitsResponse", createUnitsResponse);
-      //   //const { status } = createUnitsResponse;
+      try {
+        const { status } = await axiosPrivate.post(
+          "/estate/properties/add",
+          payload
+        );
+        //console.log("createUnitsResponse", createUnitsResponse);
+        //const { status } = createUnitsResponse;
 
-      //   if (status === 201 || status === 200) {
-      //     //console.log("added");
-      //     successNotification("Property added successful");
-      //     settenantDetails(tenantDetailsInitialState);
-      //   } else {
-      //     errorNotification("something went wrong");
-      //   }
-      // } catch (ex) {
-      //   console.log({ ex });
-      //   errorNotification("Error:something went wrong");
-      // }
+        if (status === 201 || status === 200) {
+          //console.log("added");
+          successNotification("Tenant added successful");
+          setTenantDetails(tenantDetailsInitialState);
+        } else {
+          errorNotification("something went wrong");
+        }
+      } catch (ex) {
+        console.log({ ex });
+        errorNotification("Error:something went wrong");
+      }
     } else if (check === false) {
     }
   };
@@ -168,19 +168,7 @@ const AddTenant = () => {
       [name]: value,
     });
   };
- // id	
-    // first_name
-    // last_name
-    // id_number
-    // email_address
-    // phone_number
 
-    // emergency_phone_number
-    // emergency_relation
-    // emergency_names	
-
-    // unit_id
-    // property_id
 
   return (
     <Row>

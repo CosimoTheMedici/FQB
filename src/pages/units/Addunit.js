@@ -134,25 +134,24 @@ const Addunit = () => {
       };
       console.log("payload", payload);
 
-      // try {
-      //   const { status } = await axiosInstance.post(
-      //     "/estate/properties/add",
-      //     payload
-      //   );
-      //   //console.log("createUnitsResponse", createUnitsResponse);
-      //   //const { status } = createUnitsResponse;
+      try {
+        const { status } = await axiosInstance.post(
+          "/estate/properties/add",
+          payload
+        );
+        
 
-      //   if (status === 201 || status === 200) {
-      //     //console.log("added");
-      //     successNotification("Property added successful");
-      //     setUnitsDetails(unitsDetailsInitialState);
-      //   } else {
-      //     errorNotification("something went wrong");
-      //   }
-      // } catch (ex) {
-      //   console.log({ ex });
-      //   errorNotification("Error:something went wrong");
-      // }
+        if (status === 201 || status === 200) {
+          //console.log("added");
+          successNotification("Unit added successful");
+          setUnitsDetails(unitsDetailsInitialState);
+        } else {
+          errorNotification("something went wrong");
+        }
+      } catch (ex) {
+        console.log({ ex });
+        errorNotification("Error:something went wrong");
+      }
     } else if (check === false) {
     }
   };
