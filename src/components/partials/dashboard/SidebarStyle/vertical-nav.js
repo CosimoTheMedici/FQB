@@ -73,13 +73,13 @@ const VerticalNav = memo((props) => {
                         <span className="item-name">Dashboard</span>
                     </Link>
                 </li>
-                <li><hr className="hr-horizontal"/></li>
-                <li className="nav-item static-item">
+                {/* <li><hr className="hr-horizontal"/></li> */}
+                {/* <li className="nav-item static-item">
                     <Link className="nav-link static-item disabled" to="#" tabIndex="-1">
                         <span className="default-icon">Manage Property</span>
                         <span className="mini-icon">-</span>
                     </Link>
-                </li>
+                </li> */}
            
 
                 

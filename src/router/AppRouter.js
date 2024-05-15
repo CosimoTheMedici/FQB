@@ -13,6 +13,7 @@ import Addunit from "../pages/units/Addunit";
 import AgentOwnerUnits from "../pages/units/AgentOwnerUnits";
 import AddTenant from "../pages/tenant/AddTenant";
 import AgentOwnerTenant from "../pages/tenant/AgentOwnerTenant";
+import AddUser from "../pages/usermanagement/AddUser";
 
 export const AppRouter = () => {
     return (
@@ -48,6 +49,7 @@ export const AppRouter = () => {
                 <Route path="/tenants" element={<AgentOwnerTenant />} />
                 <Route path="/add/units" element={<Addunit />} />
                 <Route path="/add/tenant" element={<AddTenant />} />
+                <Route path="/add/user" element={<AddUser />} />
               </Route>
   
               <Route element={<RequireAuth allowedRoles={['OWNER']} />}>

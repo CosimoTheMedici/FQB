@@ -50,8 +50,7 @@ const { user_id } = jwtDecode(auth.accessToken)
           "/estate/properties/add",
           payload
         );
-        //console.log("createUnitsResponse", createUnitsResponse);
-        //const { status } = createUnitsResponse;
+        
 
         if (status === 201 || status === 200) {
           //console.log("added");
