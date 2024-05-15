@@ -7,6 +7,7 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { jwtDecode } from "jwt-decode";
 import useAuth from "../../hooks/useAuth";
 import { useDispatch } from "react-redux";
+import { errorNotification, successNotification } from "../../utilities/notification";
 
 const AddTenant = () => {
   const [tenantDetails, setTenantDetails] = useState(tenantDetailsInitialState);

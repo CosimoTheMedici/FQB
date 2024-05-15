@@ -7,6 +7,7 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { jwtDecode } from "jwt-decode";
 import useAuth from "../../hooks/useAuth";
 import { useDispatch } from "react-redux";
+import { errorNotification, successNotification } from "../../utilities/notification";
 
 const Addunit = () => {
   const [unitsDetails, setUnitsDetails] = useState(unitsDetailsInitialState);
@@ -135,7 +136,7 @@ const Addunit = () => {
       console.log("payload", payload);
 
       try {
-        const { status } = await axiosInstance.post(
+        const { status } = await axiosPrivate.post(
           "/estate/properties/add",
           payload
         );
