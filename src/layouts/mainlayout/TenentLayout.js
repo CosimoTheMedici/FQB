@@ -31,4 +31,4 @@ import TenantSidebar from '../../components/partials/dashboard/SidebarStyle/Tena
     }
 
 
-export default OwnerLayout
+export default TenantLayout

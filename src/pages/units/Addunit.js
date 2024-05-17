@@ -8,6 +8,7 @@ import { jwtDecode } from "jwt-decode";
 import useAuth from "../../hooks/useAuth";
 import { useDispatch } from "react-redux";
 import { errorNotification, successNotification } from "../../utilities/notification";
+import Select from "../../components/customComponents/select/Select";
 
 const Addunit = () => {
   const [unitsDetails, setUnitsDetails] = useState(unitsDetailsInitialState);
@@ -167,6 +168,14 @@ const Addunit = () => {
     });
   };
 
+  const arrd = [
+    {label:"skskskks",  value:"lkslksks"},
+    {label:"skskskks",  value:"lkslksks"},
+    {label:"skskskks",  value:"lkslksks"},
+    {label:"skskskks",  value:"lkslksks"}
+
+  ];
+
 
   return (
     <Row>
@@ -187,29 +196,25 @@ const Addunit = () => {
                 <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
                     <Form.Label htmlFor="name">Property:</Form.Label>
-                    <Form.Select
-                      className=" form-select-mb mb-3"
-                      aria-label=".form-select-mb example"
-                    >
-                      <option defaultValue="">Open this select menu</option>
-                      <option defaultValue="1">One</option>
-                      <option defaultValue="2">Two</option>
-                      <option defaultValue="3">Three</option>
-                    </Form.Select>
+                    <Select
+                     arrayData={arrd}
+                     defaultSelectText="select"
+                     onChange={handleChange}
+                     
+                     name="select"
+                    />
                   </Form.Group>
                 </Col>
                 <Col sm="12" lg="6">
                   <Form.Group className="mb-3">
                     <Form.Label htmlFor="name">Unit Type:</Form.Label>
-                    <Form.Select
-                      className=" form-select-mb mb-3"
-                      aria-label=".form-select-mb example"
-                    >
-                      <option defaultValue="">Open this select menu</option>
-                      <option defaultValue="1">One</option>
-                      <option defaultValue="2">Two</option>
-                      <option defaultValue="3">Three</option>
-                    </Form.Select>
+                    <Select
+                     arrayData={arrd}
+                     defaultSelectText="select "
+                     onChange={handleChange}
+                     
+                     name="select"
+                    />
                   </Form.Group>
                 </Col>
                
