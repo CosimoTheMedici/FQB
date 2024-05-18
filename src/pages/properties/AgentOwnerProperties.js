@@ -10,6 +10,7 @@ import {Button, Modal, Nav, Tab} from 'react-bootstrap'
 import { Data_table,Header_table } from "../../utilities/data";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import axios from "axios";
+import { Layout } from "../../layouts/mainlayout/Layout";
 
 
 
@@ -143,4 +144,4 @@ async function getUser() {
   );
 };
 
-export default AgentLayout(AgentOwnerProperties);
+export default Layout(AgentOwnerProperties);

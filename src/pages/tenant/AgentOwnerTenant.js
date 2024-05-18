@@ -11,6 +11,7 @@ import { Data_table,Header_table } from "../../utilities/data";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import axios from "axios";
 import { useDispatch,useSelector } from "react-redux";
+import { Layout } from "../../layouts/mainlayout/Layout";
 
 
 
@@ -143,4 +144,4 @@ const AgentOwnerTenant = () => {
   );
 };
 
-export default AgentLayout(AgentOwnerTenant);
+export default Layout(AgentOwnerTenant);

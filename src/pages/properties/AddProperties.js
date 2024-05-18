@@ -7,6 +7,7 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import useAuth from "../../hooks/useAuth";
 import { jwtDecode } from "jwt-decode";
 import { errorNotification, successNotification } from "../../utilities/notification";
+import { Layout } from "../../layouts/mainlayout/Layout";
 
 const AddProperties = () => {
   const [propertiesDetails, setPropertiesDetails] = useState(
@@ -210,4 +211,4 @@ const { user_id } = jwtDecode(auth.accessToken)
   );
 };
 
-export default AgentLayout(AddProperties);
+export default Layout(AddProperties);

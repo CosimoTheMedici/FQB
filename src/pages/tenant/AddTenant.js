@@ -9,6 +9,7 @@ import useAuth from "../../hooks/useAuth";
 import { useDispatch } from "react-redux";
 import { errorNotification, successNotification } from "../../utilities/notification";
 import Select from "../../components/customComponents/select/Select";
+import { Layout } from "../../layouts/mainlayout/Layout";
 
 const AddTenant = () => {
   const [tenantDetails, setTenantDetails] = useState(tenantDetailsInitialState);
@@ -354,4 +355,4 @@ const AddTenant = () => {
   );
 };
 
-export default AgentLayout(AddTenant);
+export default Layout(AddTenant);

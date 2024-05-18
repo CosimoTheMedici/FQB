@@ -6,7 +6,7 @@ import Footer from '../../components/partials/dashboard/FooterStyle/footer'
 import Loader from '../../components/Loader'
 import TenantSidebar from '../../components/partials/dashboard/SidebarStyle/TenantSidebar'
 
-    const OwnerLayout = (Component) => function HOC() {
+    const TenantLayout = (Component) => function HOC() {
 
       return (
         <Fragment>

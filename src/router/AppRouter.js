@@ -57,25 +57,13 @@ export const AppRouter = () => {
                 <Route path="/owner/properties" element={<OwnerDashboard />} />
               </Route>
   
-              <Route element={<RequireAuth allowedRoles={['Tenent']} />}>
+              <Route element={<RequireAuth allowedRoles={['TENANT']} />}>
                 <Route path="/home/tenant" element={<TenantDashboard />} />
                 <Route path="/unit" element={<TenantDashboard />} />
               </Route>
   
-              <Route element={<RequireAuth allowedRoles={[5000]} />}>
-                <Route
-                  path="/home/agent_owner" element={<AgentOwnerProperties />}
-                />
-              </Route>
-              <Route element={<RequireAuth allowedRoles={[6000]} />}>
-                <Route path="/home/superuser" element={<AgentOwnerProperties />} />
-              </Route>
   
-              <Route element={<RequireAuth allowedRoles={[2003]} />}>
-                <Route path="/lounge" element={<AgentOwnerProperties />} />
-              </Route>
   
-              <Route path="/admin" element={<AgentOwnerProperties />} />
             </Route>
   
             {/* <Route path='*' element={<Missing />} /> */}

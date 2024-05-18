@@ -7,6 +7,7 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { jwtDecode } from "jwt-decode";
 import useAuth from "../../hooks/useAuth";
 import { useDispatch } from "react-redux";
+import { Layout } from "../../layouts/mainlayout/Layout";
 
 const AddClassifications = () => {
   const [classDetails, setClassDetails] = useState(classificationDetailsInitialState);
@@ -145,4 +146,4 @@ const AddClassifications = () => {
   );
 };
 
-export default AgentLayout(AddClassifications);
+export default Layout(AddClassifications);
