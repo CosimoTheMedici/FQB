@@ -1,8 +1,29 @@
 
 import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import { propertiesDetailsInitialState } from "../helpers/InitialStates";
+
 
 const UpdateProperties = () => {
+  const [propertiesDetails, setPropertiesDetails] = useState(
+    propertiesDetailsInitialState
+  );
+
+
+  const handleChange = ({ currentTarget: input }) => {
+    let name = input.id;
+    let value = input.value;
+
+    setClassDetails({
+      ...classDetails,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  }
+
   return (
     <form onSubmit={handleSubmit}>
             <Form as={Row} >

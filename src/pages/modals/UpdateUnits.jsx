@@ -1,8 +1,34 @@
 
 import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import { unitsDetailsInitialState } from "../helpers/InitialStates";
+import Select from "../../components/customComponents/select/Select";
 
 const UpdateUnits = () => {
+  const [unitsDetails, setUnitsDetails] = useState(unitsDetailsInitialState);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  }
+
+
+  const handleChange = ({ currentTarget: input }) => {
+    let name = input.id;
+    let value = input.value;
+
+    setUnitsDetails({
+      ...unitsDetails,
+      [name]: value,
+    });
+  };
+
+  const arrd = [
+    {label:"skskskks",  value:"lkslksks"},
+    {label:"skskskks",  value:"lkslksks"},
+    {label:"skskskks",  value:"lkslksks"},
+    {label:"skskskks",  value:"lkslksks"}
+
+  ];
   return (
     <form onSubmit={handleSubmit}>
               <Form as={Row}>

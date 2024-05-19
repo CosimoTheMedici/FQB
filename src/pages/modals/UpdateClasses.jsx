@@ -1,8 +1,27 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import { classificationDetailsInitialState } from "../helpers/InitialStates";
+
 
 
 const UpdateClasses = () => {
+  const [classDetails, setClassDetails] = useState(classificationDetailsInitialState);
+
+  
+  const handleChange = ({ currentTarget: input }) => {
+    let name = input.id;
+    let value = input.value;
+
+    setClassDetails({
+      ...classDetails,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  }
+
   return (
     <form onSubmit={handleSubmit}>
               <Form as={Row}>
@@ -18,7 +37,7 @@ const UpdateClasses = () => {
                       name="name"
                       placeholder="Enter Unit Name"
                       onChange={handleChange}
-                      value={unitsDetails.name}
+                      value={classDetails.name}
                     />
                   </Form.Group>
                 </Col>
@@ -32,7 +51,7 @@ const UpdateClasses = () => {
                       id="description"
                       name="description"
                       onChange={handleChange}
-                      value={unitsDetails.description}
+                      value={classDetails.description}
                       rows={3}
                       placeholder="Enter description"
                     />
