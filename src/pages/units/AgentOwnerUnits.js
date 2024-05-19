@@ -12,6 +12,8 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import axios from "axios";
 import { useDispatch,useSelector } from "react-redux";
 import { Layout } from "../../layouts/mainlayout/Layout";
+import ModalComponent from "../../components/customComponents/modal/ModalComponent";
+import UpdateUnits from "../modals/UpdateUnits";
 
 
 
@@ -128,6 +130,15 @@ const AgentOwnerUnits = () => {
           </Card>
         </Col>
       </Row>
+      <ModalComponent 
+      modalTitle = {"UPDATE "}
+      modalState = {show}
+      handleClose = {handleClose}
+      modalFooter = {<></>}
+      modalBody = {
+        <UpdateUnits />
+      }
+      />
       <Modal show={show} onHide={handleClose}>
                                             <Modal.Header closeButton>
                                                     <Modal.Title as="h5">Modal title</Modal.Title>

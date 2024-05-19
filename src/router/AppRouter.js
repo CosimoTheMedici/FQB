@@ -43,18 +43,25 @@ export const AppRouter = () => {
   
               {/* protected agents */}
               <Route element={<RequireAuth allowedRoles={['AGENT','AGENTOWNER']} />}>
-                <Route path="/home/agentowner" element={<AgentOwnerDashboard />} />
                 <Route path="/properties" element={<AgentOwnerProperties />} />
                 <Route path="/units" element={<AgentOwnerUnits />} />
                 <Route path="/tenants" element={<AgentOwnerTenant />} />
                 <Route path="/add/units" element={<Addunit />} />
                 <Route path="/add/tenant" element={<AddTenant />} />
-                <Route path="/add/user" element={<AddUser />} />
               </Route>
   
+              <Route element={<RequireAuth allowedRoles={['AGENTOWNER']} />}>
+              <Route path="/home/agentowner" element={<AgentOwnerDashboard />} />
+                
+              </Route>
+
+              <Route element={<RequireAuth allowedRoles={['AGENTOWNER','OWNER']} />}>
+              <Route path="/add/user" element={<AddUser />} />
+
+              </Route>
               <Route element={<RequireAuth allowedRoles={['OWNER']} />}>
                 <Route path="/home/owner" element={<OwnerDashboard />} />
-                <Route path="/owner/properties" element={<OwnerDashboard />} />
+                
               </Route>
   
               <Route element={<RequireAuth allowedRoles={['TENANT']} />}>

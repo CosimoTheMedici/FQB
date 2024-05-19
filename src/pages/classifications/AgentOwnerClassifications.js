@@ -133,13 +133,15 @@ const AgentOwnerClassifications = () => {
                                                     <Modal.Title as="h5">Modal title</Modal.Title>
                                             </Modal.Header>
                                             <Modal.Body>
-                                            ...
+                                            
                                             </Modal.Body>
                                             <Modal.Footer>
                                             <Button variant="secondary" onClick={handleClose}>Close</Button>
                                             <Button variant="primary" onClick={handleClose}>Save changes</Button>
                                             </Modal.Footer>
                                         </Modal>
+
+              
     </>
   );
 };
