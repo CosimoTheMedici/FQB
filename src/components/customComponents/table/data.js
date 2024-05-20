@@ -15,6 +15,7 @@
           startdate: "2009/10/09",
           salary: "$1,200,000",
         },
+
         {
           name: "Ashton Cox",
           position: "Junior Technical Author",
@@ -23,6 +24,7 @@
           startdate: "2009/01/12",
           salary: "$86,000",
         },
+        
         {
           name: "Bradley Greer",
           position: "Software Engineer",
