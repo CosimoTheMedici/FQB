@@ -20,6 +20,7 @@ const UpdateClasses = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    
   }
 
   return (
